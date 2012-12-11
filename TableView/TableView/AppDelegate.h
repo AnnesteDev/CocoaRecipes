@@ -8,8 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSTableViewDataSource>
 
 @property (assign) IBOutlet NSWindow *window;
+@property (strong) IBOutlet NSMutableArray *tableData;
+@property (strong) IBOutlet NSTableView *tableView;
+
+- (NSInteger) numberOfRowsInTableView:(NSTableView *)table;
+- (id)tableView:(NSTableView *)table objectValueForTableColumn:(NSTableColumn *)column row:(NSInteger)rowIndex;
 
 @end
